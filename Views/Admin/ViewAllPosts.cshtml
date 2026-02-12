@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SplitTree.Models.Post>
+
+@{
+    ViewBag.Title = "ViewAllPosts";
+}
+
+<h2>ViewAllPosts</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatePosted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateExpired)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatePosted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateExpired)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostId })
+        </td>
+    </tr>
+}
+
+</table>
